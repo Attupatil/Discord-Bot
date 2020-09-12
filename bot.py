@@ -26,4 +26,4 @@ async def on_member_join(member):
 @client.command()
 async def on_member_move(member):
     print(f'{member}Acha hua chala gaya')
-client.run('.-3dpQ19jF7oHt7vnuTUTzeSG68A')
+client.run('NzU0MjQ1ODMwMzc4MjU4NDMz.X1x8Kw.-3dpQ19jF7oHt7vnuTUTzeSG68A')
