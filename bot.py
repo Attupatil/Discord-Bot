@@ -52,26 +52,26 @@ class YTDLSource(discord.PCMVolumeTransformer):
 
 client = commands.Bot(command_prefix='sudo ')
 
-status = ['Swatachya dhundit', ' ajj cha divas mast ahey', 'nusta dhurr']
+status = ['game ', 'ssupp boi', 'nusta dhurr', 'verma apla dj']
 
 @client.event
 async def on_ready():
     change_status.start()
     print('Bot is online!')
 
-@client.event
+@client.event 
 async def on_member_join(member):
-    channel = discord.utils.get(member.guild.channels, name='general')
-    await channel.send(f'Welcome {member.mention}!  Ready to jam out? See `?help` command for details!')
+    channel = discord.utils.get(member.guild.channels, name='welcome')
+    await channel.send(f'Welcome Welcome Welcome{member.mention}!! `sudo help`')
 
 @client.command(name='ping', help='This command returns the latency')
 async def ping(ctx):
-    await ctx.send(f'**Pong!** Latency: {round(client.latency * 1000)}ms')
+    await ctx.send(f'**Pong!** Latency: `{round(client.latency * 1000)}ms` ')
 
 @client.command()
 async def version(ctx):
     """Check the current bot version"""
-    await ctx.send("sadhya majha version 1.1 ahey")
+    await ctx.send("sadhya majha version `1.2` ahey")
 
 @client.command(name='ITjoke', help= 'computer valyansathi kahi atrangi jokes')
 async def joke(ctx):
@@ -79,7 +79,7 @@ async def joke(ctx):
 
 @client.command(name='hello', help='This command returns a random welcome message')
 async def hello(ctx):
-    responses = ['kai bhava ksais', 'nusta rada', 'Namaskar', 'Ram Ram', '**Wasssuup!**']
+    responses = ['kai bhava ksais', 'nusta rada', '**Wasssuup!**', '**Noiccee**']
     await ctx.send(choice(responses))
 
 @client.command(name='die', help='This command returns a random last words')
@@ -93,7 +93,7 @@ async def credits(ctx):
 
 @client.command(name='create-channel')
 @commands.has_role('Admin')
-async def create_channel(ctx, channel_name='orks'):
+async def create_channel(ctx, channel_name='home'):
     guild = ctx.guild
     existing_channel = discord.utils.get(guild.channels, name=channel_name)
     if not existing_channel:
@@ -134,4 +134,4 @@ async def stop(ctx):
 async def change_status():
     await client.change_presence(activity=discord.Game(choice(status)))
 
-client.run('Token')
+client.run('')
