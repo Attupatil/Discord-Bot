@@ -141,7 +141,7 @@ async def xkcd(ctx, arg):
     elif arg.isnumeric():
         comic = requests.get(f'https://xkcd.com/{arg}/info.0.json')
         if not str(comic.status_code).startswith('2')
-            ctx.send(f'XKCD comic '{arg}' does not exist')
+            ctx.send(f'XKCD comic "{arg}" does not exist')
 
         ctx.send(comic.json().get('img', 'No image available'))
 
