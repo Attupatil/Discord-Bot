@@ -5,6 +5,7 @@ import youtube_dl
 import random
 import pyjokes
 from random import choice
+import requests
 
 youtube_dl.utils.bug_reports_message = lambda: ''
 
@@ -129,6 +130,24 @@ async def play(ctx, url):
 async def stop(ctx):
     voice_client = ctx.message.guild.voice_client
     await voice_client.disconnect()
+
+@client.command(name='xkcd', help='Gets a random XKCD comic')
+async def xkcd(ctx, arg):
+    if arg == 'random':
+        random = requests.get('https://c.xkcd.com/random/comic')
+        comic = requests.get(random.url + 'info.0.json')
+        await ctx.send(comic.json().get('img', 'No image available'))
+
+    elif arg.isnumeric():
+        comic = requests.get(f'https://xkcd.com/{arg}/info.0.json')
+        if not str(comic.status_code).startswith('2'):
+            await ctx.send(f'XKCD comic "{arg}" does not exist')
+
+        else:
+            await ctx.send(comic.json().get('img', 'No image available'))
+
+    else:
+        await ctx.send('Invalid argument: ' + str(arg))
 
 @tasks.loop(seconds=20)
 async def change_status():
