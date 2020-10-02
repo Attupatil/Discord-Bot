@@ -136,17 +136,18 @@ async def xkcd(ctx, arg):
     if arg == 'random':
         random = requests.get('https://c.xkcd.com/random/comic')
         comic = requests.get(random.url + 'info.0.json')
-        ctx.send(comic.json().get('img', 'No image available'))
+        await ctx.send(comic.json().get('img', 'No image available'))
 
     elif arg.isnumeric():
         comic = requests.get(f'https://xkcd.com/{arg}/info.0.json')
-        if not str(comic.status_code).startswith('2')
-            ctx.send(f'XKCD comic "{arg}" does not exist')
+        if not str(comic.status_code).startswith('2'):
+            await ctx.send(f'XKCD comic "{arg}" does not exist')
 
-        ctx.send(comic.json().get('img', 'No image available'))
+        else:
+            await ctx.send(comic.json().get('img', 'No image available'))
 
     else:
-        ctx.send('Invalid argument: ' + str(arg))
+        await ctx.send('Invalid argument: ' + str(arg))
 
 @tasks.loop(seconds=20)
 async def change_status():
