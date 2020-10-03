@@ -53,7 +53,7 @@ class YTDLSource(discord.PCMVolumeTransformer):
 
 client = commands.Bot(command_prefix='sudo ')
 
-status = ['game ', 'ssupp boi', 'nusta dhurr', 'verma apla dj']
+status = ['Cool Game', 'ssupp boi', 'Hackerrank', 'GoodGame']
 
 @client.event
 async def on_ready():
@@ -72,9 +72,9 @@ async def ping(ctx):
 @client.command()
 async def version(ctx):
     """Check the current bot version"""
-    await ctx.send("sadhya majha version `1.2` ahey")
+    await ctx.send("My current version is `1.3` ")
 
-@client.command(name='ITjoke', help= 'computer valyansathi kahi atrangi jokes')
+@client.command(name='ITjoke', help= 'Jokes for IT people')
 async def joke(ctx):
     await ctx.send(pyjokes.get_joke())
 
