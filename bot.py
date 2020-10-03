@@ -80,7 +80,7 @@ async def joke(ctx):
 
 @client.command(name='hello', help='This command returns a random welcome message')
 async def hello(ctx):
-    responses = ['kai bhava ksais', 'nusta rada', '**Wasssuup!**', '**Noiccee**']
+    responses = ['**Hey Bro**', '***Hello Hello Hello***', '**Wasssuup!**', '**Noiccee**']
     await ctx.send(choice(responses))
 
 @client.command(name='die', help='This command returns a random last words')
