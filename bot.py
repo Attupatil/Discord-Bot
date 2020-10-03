@@ -98,18 +98,18 @@ async def create_channel(ctx, channel_name='home'):
     guild = ctx.guild
     existing_channel = discord.utils.get(guild.channels, name=channel_name)
     if not existing_channel:
-        print(f'bhai tu bolshil tsa..\n channel ch naav sang :- {channel_name}')
+        print(f'The New Channel is created under name:- {channel_name}')
         await guild.create_text_channel(channel_name)
 
 @client.event
 async def on_command_error(ctx, error):
     if isinstance(error, commands.errors.CheckFailure):
-        await ctx.send('Tu kon shahu laglas ka channel banvaila.')
+        await ctx.send('Sorry mate you dont have permission.')
 
 @client.command(name='play', help='This command plays music')
 async def play(ctx, url):
     if not ctx.message.author.voice:
-        await ctx.send("You are not connected to a voice channel")
+        await ctx.send("You are not connected to a voice channel Please Connect to voice")
         return
     
     else:
@@ -149,7 +149,7 @@ async def xkcd(ctx, arg):
     else:
         await ctx.send('Invalid argument: ' + str(arg))
 
-@tasks.loop(seconds=20)
+@tasks.loop(seconds=10)
 async def change_status():
     await client.change_presence(activity=discord.Game(choice(status)))
 
