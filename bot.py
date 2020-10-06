@@ -148,7 +148,7 @@ async def xkcd(ctx, arg):
 
     else:
         await ctx.send('Invalid argument: ' + str(arg))
-
+# to get corona data use corona "NAME OF COUNTRY"
 @client.command(name='corona', help='Gets you Corona Virus data')       
 async def Data(ctx,coun):
     embed=discord.Embed(
