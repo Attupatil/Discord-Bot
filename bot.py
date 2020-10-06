@@ -6,6 +6,8 @@ import random
 import pyjokes
 from random import choice
 import requests
+from covid import Covid
+cov = Covid(source="john_hopkins")
 
 youtube_dl.utils.bug_reports_message = lambda: ''
 
