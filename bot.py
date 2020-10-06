@@ -92,6 +92,11 @@ async def die(ctx):
 async def credits(ctx):
     await ctx.send('Made by `Attu_patil`')
 
+@client.command(name='about42', help='This command returns the secret about 42')
+async def about42(ctx):
+    """Method about the 42 number"""
+    await ctx.send('Answer to the Ultimate Question of Life, The Universe, and Everything is 42!')
+
 @client.command(name='create-channel')
 @commands.has_role('Admin')
 async def create_channel(ctx, channel_name='home'):
