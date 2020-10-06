@@ -149,28 +149,28 @@ async def xkcd(ctx, arg):
     else:
         await ctx.send('Invalid argument: ' + str(arg))
 
-@client.command(name='corona', help='Gets you Corona Virus data')        
-    async def Data(ctx,coun):
-        embed=discord.Embed(
-            title = 'Covid Data about '+ coun,
-            description='',
-            color= discord.Color.dark_gold()
-        )
-        data=cov.get_status_by_country_name(coun)
-        def Val(k):
-            for key, value in data.items():
-                if k == key:
-                    return value
-        embed.set_footer(text=cov.source)
-        embed.set_thumbnail(url='https://ahmednafies.github.io/covid/img/corona.jpeg')
-        embed.set_image(url='https://ahmednafies.github.io/covid/img/corona.jpeg')
-        embed.set_author(name='Covid Data',
-                        icon_url='https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg')
-        embed.add_field(name='Total Confirmed Cases', value=Val('confirmed'), inline=False)
-        embed.add_field(name='Active Cases',value=Val('active'),inline=False)
-        embed.add_field(name='No.of Deaths', value=Val('deaths'), inline=False)
-        embed.add_field(name='Recovered', value=Val('recovered'), inline=False)
-        await ctx.send(embed=embed)
+@client.command(name='corona', help='Gets you Corona Virus data')       
+async def Data(ctx,coun):
+    embed=discord.Embed(
+        title = 'Covid Data about '+ coun,
+        description='',
+        color= discord.Color.dark_gold()
+    )
+    data=cov.get_status_by_country_name(coun)
+    def Val(k):
+        for key, value in data.items():
+            if k == key:
+                return value
+    embed.set_footer(text=cov.source)
+    embed.set_thumbnail(url='https://ahmednafies.github.io/covid/img/corona.jpeg')
+    embed.set_image(url='https://ahmednafies.github.io/covid/img/corona.jpeg')
+    embed.set_author(name='Covid Data',
+                    icon_url='https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg')
+    embed.add_field(name='Total Confirmed Cases', value=Val('confirmed'), inline=False)
+    embed.add_field(name='Active Cases',value=Val('active'),inline=False)
+    embed.add_field(name='No.of Deaths', value=Val('deaths'), inline=False)
+    embed.add_field(name='Recovered', value=Val('recovered'), inline=False)
+    await ctx.send(embed=embed)
         
 @tasks.loop(seconds=10)
 async def change_status():
