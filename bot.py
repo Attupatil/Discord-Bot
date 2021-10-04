@@ -87,7 +87,7 @@ async def hello(ctx):
 
 @client.command(name='die', help='This command returns a random last words')
 async def die(ctx):
-    responses = ['why have you brought my short life to an end', 'i could have done so much more', 'i have a family, kill them instead']
+    responses = ['why have you brought my short life to an end', 'i could have done so much more', 'i have a family, kill them instead', 'this is test']
     await ctx.send(choice(responses))
 
 @client.command(name='credits', help='This command returns the credits')
